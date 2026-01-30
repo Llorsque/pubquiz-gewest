@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pubquiz Admin</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="dot"></div>
+      <div>
+        <div class="title">Pubquiz Admin</div>
+        <div class="subtitle" id="connStatus">Verbinden…</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="btn" id="btnSort">Sorteren</button>
+      <button class="btn btn-ghost" id="btnReset">Reset scores</button>
+    </div>
+  </header>
+
+  <main class="layout-admin">
+    <section class="card">
+      <h2>Instellingen</h2>
+
+      <div class="row">
+        <label class="label">Quiz titel</label>
+        <div class="input-group">
+          <input id="quizTitle" class="input" placeholder="Pubquiz" />
+          <button class="btn" id="btnSaveTitle">Opslaan</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="label">Aantal teams</label>
+        <div class="input-group">
+          <input id="teamCount" class="input" type="number" min="0" max="60" value="10" />
+          <button class="btn" id="btnSetCount">Maak teams</button>
+        </div>
+        <div class="hint">Maakt Team 1 t/m Team N aan (score = 0).</div>
+      </div>
+
+      <div class="row">
+        <label class="label">Team toevoegen</label>
+        <div class="input-group">
+          <input id="newTeamName" class="input" placeholder="Teamnaam…" />
+          <button class="btn" id="btnAddTeam">Toevoegen</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-ghost" id="btnExample">Laad voorbeeld</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Teams & punten</h2>
+      <div class="hint">Klik op +/− om punten te geven. Alles sync’t live met het display.</div>
+
+      <div class="teamlist" id="teamList"></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+  <script>
+    window.__APP_MODE__ = "admin";
+  </script>
+</body>
+</html>

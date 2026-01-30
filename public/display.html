@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pubquiz Scoreboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="app display">
+  <header class="topbar displaybar">
+    <div class="brand">
+      <div class="dot"></div>
+      <div>
+        <div class="title" id="displayTitle">Pubquiz</div>
+        <div class="subtitle" id="connStatus">Verbinden…</div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <button class="btn btn-ghost" id="btnFullscreen" title="Fullscreen (F11 is ook ok)">Fullscreen</button>
+      <button class="btn btn-ghost" id="btnSettings" title="Weergave-instellingen">⚙</button>
+    </div>
+  </header>
+
+  <main class="layout-display">
+    <section class="leaderboard" id="leaderboard"></section>
+  </main>
+
+  <div class="settings" id="settingsPanel" aria-hidden="true">
+    <div class="settings-inner card">
+      <div class="settings-header">
+        <h2>Weergave</h2>
+        <button class="btn btn-ghost" id="btnCloseSettings">Sluiten</button>
+      </div>
+
+      <div class="row">
+        <label class="label">Schaal</label>
+        <input id="scaleRange" type="range" min="80" max="130" value="100" />
+        <div class="hint">Handig als je op 75" nét wat groter wilt.</div>
+      </div>
+
+      <div class="row">
+        <label class="label">Toon top</label>
+        <select id="topCount" class="input">
+          <option value="8">Top 8</option>
+          <option value="10" selected>Top 10</option>
+          <option value="12">Top 12</option>
+          <option value="20">Top 20</option>
+          <option value="60">Alle teams</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+  <script>
+    window.__APP_MODE__ = "display";
+  </script>
+</body>
+</html>

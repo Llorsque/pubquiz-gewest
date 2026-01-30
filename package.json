@@ -1,0 +1,13 @@
+{
+  "name": "pubquiz-scoreboard",
+  "version": "1.0.0",
+  "description": "Realtime pubquiz punten-systeem (admin invoer + groot scoreboard display) via Socket.IO",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}
